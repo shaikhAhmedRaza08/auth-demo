@@ -15,6 +15,17 @@ docker run --name auth-demo-db
 -v postgres-data:/var/lib/postgresql/data
 -d postgres
 
+
+Now, run the following script in the SQL for creating users table:
+CREATE TABLE IF NOT EXISTS Users
+(
+    id         SERIAL PRIMARY KEY,
+    username   VARCHAR(50)  NOT NULL UNIQUE,
+    email      VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 🔧 Backend – Auth API Service
 Navigate to the backend directory:
 
